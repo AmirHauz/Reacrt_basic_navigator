@@ -1,17 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import Dog from './Dog';
+import Cat from './Cat';
+import Parrot from './Parrot';
+import Horse from './Horse';
+import Turtle from './Turtle';
+import Praditors from './Praditors';
+import Birds from './Birds';
+import Mammals from './Mammals';
+import Raptiles from './Raptiles';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route path='praditors' element={<Praditors />}>
+            <Route path='dog' element={<Dog />} />
+            <Route path='cat' element={<Cat />} />
+          </Route>
+          <Route path='birds' element={<Birds />}>
+            <Route path='parrot' element={<Parrot />} />
+          </Route>
+          <Route path='mammals' element={<Mammals />}>
+            <Route path='horse' element={<Horse />} />
+          </Route>
+          <Route path='raptiles' element={<Raptiles />}>
+            <Route path='turtle' element={<Turtle />} />
+          </Route>
+          
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+        </Route>
+      </Routes>
+
+    </BrowserRouter>
+  </React.StrictMode>
+
+);
